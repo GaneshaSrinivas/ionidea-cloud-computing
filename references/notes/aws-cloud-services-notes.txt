@@ -1,0 +1,73 @@
+Cloud Computing Basics
+	- What is Cloud Computing
+	- Cloud Computing Architecture
+	- Cloud Computing Characteristics
+	- Cloud Service Models - IaaS, PaaS, SaaS
+	- Cloud Deployment Models - Private, Public, Hybrid, Community
+	- Benefits and Limitations
+	
+Cloud Service Providers
+	- AWS Services
+	- Azure
+	- GCP (Google Cloud Platform)
+
+AWS Services
+	- AWS Global Infrastructure - Regions, Availability Zones, Edge Locations
+	- Core Services - Compute, Storage, Networking
+	- Extended Core Services - CDN, Security
+	- Platform Services - Database, Analytics, AI/ML, Mobile, IoT, 
+	- Deployment & Management Services - CloudFormation, OpsWorks, System Manager, etc.
+
+Compute Services
+	EC2
+		AMI
+		Instance Types
+		Instance Config		
+			Placement Groups
+				Cluster
+				Partition
+				Spread
+			Tenancy
+				Shared
+				Dedicated Instance
+				Dedicated Host
+				
+			Purchasing Options
+				- On Demand (hourly charges) | shared/multi-tenant
+				- Reserved	(Long term usage) | shared/multi-tenant
+				- Spot Instances (Short term usage) | shared/multi-tenant  | cheapest
+				- Dedicated Instance (Single tenant hardware)
+				- Dedicated Host (Separate server for each EC2) | costliest
+		Volume
+		Security Groups
+		Key Pairs
+		
+		Elastic IP
+		
+	- Steps to create EC2 instance
+		Step 1: Select AMI (Template with OS, apps, config, etc..)
+		Step 2: Choose Instance Types (General Purpose, Compute Optimized, Memory Optimized, Storage optimized, GPU instances)
+		Step 3: Configure Instance
+					- No of instances
+					- Networking (VPC)
+					- Placement Groups (how instances to be placed in the underlying hardware)
+						- cluster (low latency instance communication)
+						- partition (distributed computing / workload)
+						- spread (more isolation b/w instances)
+						
+					- Tenancy (Shared / Dedicated)
+		Step 4: Storage (EBS)
+					- storage size
+					- storage type (ssd/magnetic)
+					- encryption
+					
+		Step 5: Configure Security Groups
+					- inbound traffic rules
+					- outbound traffic rules
+					
+		Step 6: Add tags
+					- metadata
+					- logical group instances
+					- filtering
+					
+		Step 7: configure Key Pair (credentials)		
