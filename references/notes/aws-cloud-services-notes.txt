@@ -71,3 +71,394 @@ Compute Services
 					- filtering
 					
 		Step 7: configure Key Pair (credentials)		
+	
+Storage Services
+	- Block Storage - EBS
+		Block Storage
+		SSD / HDD
+		Snapshots - Stored in S3
+		Lifecycle Manager
+		Encryption
+		
+	- File Storage - EFS
+		File Storage
+		Enable data sharing across EC2 instances
+		Dynamic
+		Highly Scalable (Petabyte)				
+		
+	- Object Storage - S3 (Simple Storage Service)
+		- Create Bucket
+		- Create Folders
+		- Upload data
+		- Versioning
+		- Server Access Logs
+		- Object Access Logs
+		- Access Control
+		- Encryption
+		- Cross Region Replication (CRR)
+		- Transfer Acceleration
+		- Requestor Pays
+		- Pricing
+			- Storage
+			- No of requests
+			- Data Transfer Out
+			
+		- Storage Classes
+			- Hot	=> Standard
+					   Standard IA - Intelligent Tier
+			- Warm	=> Standard IA
+			- Cold  => Glacier
+			
+		- Lifecycle Manager
+		
+	- Glacier
+		
+	Storage Gateway
+		Transfer data from on-prem to cloud
+		
+		Volume Gateway
+		File Gateway
+		Tape Gateway
+
+Database Services
+	- What is Managed Database?
+	- RDS (Relational Database Service)
+		- MySQL | Maria DB | Oracle | MS SQL Server | Aurora | Postgres
+		- Multi AZ Replication
+		- Read Replica
+		- Backup and Restore
+		
+	- DynamoDB (NoSQL)
+	- ElasticCache
+		- Redis | MemCache
+	- RedShift
+		- Data Warehouse
+		- Columnar Database with Petabyte scale
+	- DocumentDB (Mongo DB)
+	- Keyspaces (Cassandra DB)
+	- Neptune (Graph DB)
+	
+Networking
+	VPC
+		- Name
+		- CIDR	10.0.0.0/22 -> 2^10 -> 1024
+		- Main Route Table
+		- DHCP Option Set
+		- NACL
+		
+	Subnets
+		- Name
+		- CIDR
+		- AZ
+		- NACL
+		- Route Table
+		- Enable Assign Public IP
+		
+	IGW
+		- Create IGW
+		- Attach VPC
+	
+	Route Table
+		- Add entry to allow traffic via IGW
+		
+		
+	EC2 Launch
+		- Configure Instance
+			- Select VPC
+			- Select Subnet
+			- Enable Assign Public IP
+			
+	Direct Connect	
+	VPN
+		
+	
+	ELB
+		Classic
+		
+		App
+		Nw
+		Gw
+		
+		App ELB
+			- VPC
+			- AZ
+			
+			- Listener
+				- Prototol
+				- Port
+				
+			- Target Group
+				- Name
+				- Target Port
+				- Health Check
+					- url
+					- interval
+					- success code
+				- Register Instances
+					- Healthy -> 5 consecutive health checks passed
+					- Unhealthy -> 2 consecutive health checks failed
+					
+	Auto Scaling
+		- Auto Scaling Group
+			- Launch Configuration -> AMI, Instance Type, Volume, SG, KP
+			- Group Size -> Min, Max, Desired
+			- Scaling Policy - Manual / Dynamic
+			
+Content Delivery	
+	
+	Cloud Front (CDN)
+		- Caches data on Edge Locations and Regional Caches
+		- User requests be served from neared Edge Locations
+		
+		- Distribution
+			- Origin -> S3|ELB
+			- HTTP Operations
+			- Caching Policy			
+			- Globally | US & Canada | Rest of the World
+			
+		- CloudFront Application URL
+		
+	Route 53
+		- Domain Registration
+		- DNS Management	
+	
+Compute Service (PaaS)	
+				
+	Elastic Beanstalk 
+		- PaaS
+		- Provision Infra and Runtime/Platform
+		- Build App and Deploy - Zip, War, Docker
+		
+		- Application
+			- Versions
+		- Environment
+			- Tier -> Web | Worker
+			- Platform -> Java, .Net, Python, Node JS, Docker, etc.
+			- Upload
+		
+			- Provisioning of Environment
+			
+		- Application URL
+			
+Serverless Computing
+	Compute - Lambda, Fargate
+	App Integration - SQS, SNS, API Gateway, Step Functions, EventBridge, AppSync
+	Data Store - S3, DynamoDB, RDS, Aurora
+	
+	AWS Lambda
+		- Create Lambda Functions
+		- Blueprint / Scratch
+		- Permissions - create roles
+		- Runtime - Java, Python, Node JS, .Net, etc.
+		- Source Code with Processing Logic
+			- Handler
+				- Event
+				- Context
+	API Gateway
+		- HTTP API
+			- Create Routes
+			- Create Integrations
+			- Stages - DEV,UAT,PROD
+			- Endpoint URL
+		- REST API
+			- Resources
+				- Methods - GET,PUT,POST,DELETE
+					- Integrations
+			- Endpoint Type - Regional, Edge, Private
+			- Stages - DEV,UAT,PROD
+			- Endpoint URL
+			
+	Step Functions
+		- Orchestration / Workflow Mgmt
+		- StateMachines
+		
+		- AWL
+		- State
+		- Task - Lambda, API
+		
+	Cloud Watch
+		- Alarm
+			- Metric
+			- Condition
+			- Action
+				- Auto Scaling
+				- Notification
+		- Metrics
+			- Collect
+			- Monitor
+			- Analyze
+		- Application Metrics
+	
+	SNS
+		- Create Topic
+		
+		- Publish Notification
+		- Subcriptions
+			- Email
+			- SMS
+			- Push Notification			
+		
+	SQS
+		- Messaging
+		- App to App
+		- Queue
+			- FIFO	- Exactly Once, Highly Reliable, Durable
+			- Standard - At Least Once, Fast, High Throughput
+		- Sender		- AWS Console, CLI, AWS SDK/API
+		- Receiver		- AWS Console, CLI, AWS SDK/API	
+		
+	Cloud Trail	
+			
+Container Services
+	ECR (Elastic Container Registry)
+	ECS (Elastic Container Service)
+	EKS (Elastic Kubernetes Service)
+	
+	Why Container?
+	What is Container?
+	
+	Docker - Container Runtime
+	Docker Arch
+		Docker Client - CLI, GUI, API, SDK
+		Docker Host - Daemon, Images, Containers
+		Registry - Docker Hub, ECR
+		
+	Docker Basic Commands
+		docker pull <image-name>
+		docker images
+		docker run -d --name <container-name> -p <ext-port>:<int-port> <image-name>
+		docker ps
+		docker ps -a
+		docker stop <container-id/name>
+		docker start <container-id/name>
+		docker restart <container-id/name>
+		docker rm <container-id/name>
+		docker logs <container-id/name>
+		docker stats <container-id/name>			
+		docker build -t <image-name> <docker-file-dir>
+		docker push <image-name>
+		
+	DockerFile
+		- Instructions to create to docker image
+		- Base Image
+		- Install Softwares
+		- Deploy Application
+		- Configure
+		
+	Build Docker Image
+	
+	Publish Docker Image to Registry
+		- Login to ECR / DockerHub
+		- Create Repository
+		- Tag Image
+		- Push Docker Image
+		
+		
+	ECS
+		- Create Cluster
+		- Create Service
+		- Create Task Definition
+		- Container
+		
+	EKS
+		- Create Cluster
+		- Control Plane
+		- Compute / Data Plane
+			- Node Group - 2 x t3.medium - 17 pods each
+			- Fargate
+		- Install & Configure Kubectl
+		- Connect to EKS cluster via Kubectl
+		- Launched K8s Dashboard
+		- Deploy Product Service on EKS
+		- Access product-service over internet
+		- Load Balacing, Auto Scaling, Self Healing
+		
+Cloud Migration Strategies
+	- Cloud Migration Strategies - Rehost | Replatform | Repurchase | Refactor | Retain | Retire
+	- Server Migration (SMS) VM Connectors => VMWare vCenter | MS Hyper-V | Azure
+	- Storage Migration 
+		=> (Storage Gateway -> Volume, File, Tape) 
+		=> Snow Family (Snow Ball | Snow Mobile
+		=> Transfer Family (FTP, SFTP)
+	- Database Migration (DMS)
+		=> Replication Instance
+		=> Source & Target Endpoints
+		=> Create Database Migration Task
+		=> Schema Converter
+
+Cloud Security
+	- Cloud/Application Security
+	
+		
+			
+Management Services
+	- Cloud Provisioning
+	- Infrastructure as Code (IoC)
+	
+	Cloud Formation
+	
+		- Create Template
+				- Resources, Parameters, Mapping, Output
+		- Create Stack
+			- Provision Resources
+			- Rollaback in case failure
+		- Manage Stack
+			- Update -> Change Sets
+			- Delete
+			
+	TerraForm
+		
+		- Create Configuration
+			- Providers, Resources, Parameters
+		- Initialize
+		- Plan
+		- Apply
+
+Security Services
+		
+	Identity & Access 	- IAM Service, AWS SSO, Directory Service, Cognito
+	Detection			- AWS Inspector, Macie
+	Infra Protection	- AWS Shield, Network Firewall, WAF (Web Application Firewall)
+	Data Protection		- KMS, Certificate Manager
+	
+	IAM Services
+		- User => entity/object will have an identity and access control
+		- Group => collection of users and access control
+		- Role => entity with temp identity and will have access control
+		- Policy => list of permissions to be allowed or denied
+			- Elements of policy
+			- Effect
+			- Action
+			- Resource
+			
+			- ARN (Amazon Resource Name)		
+			
+Developer Services
+		
+	CodeCommit
+	CodeArtifact
+	CodeBuild - check out latest code, unit test, build and create package, docker image
+	CodeDeploy - deploy the packages, docker images into target severs / services
+	CodePipeline - automates ci/cd
+		
+Analytics Services
+	
+	RedShift
+	EMR
+	Glue
+	Kinesis
+	MSK (Kafka)
+	CloudSearch
+	
+	SageMaker
+	
+
+			
+		
+			
+			
+			
+			
+		
+		
+	
