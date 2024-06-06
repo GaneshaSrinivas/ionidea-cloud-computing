@@ -17,6 +17,7 @@ AWS Services
 	- Extended Core Services - CDN, Security
 	- Platform Services - Database, Analytics, AI/ML, Mobile, IoT, 
 	- Deployment & Management Services - CloudFormation, OpsWorks, System Manager, etc.
+	- Developer Services - Code Commit, Code Build, Code Pipeline, etc...
 
 Compute Services
 	EC2
@@ -288,6 +289,7 @@ Serverless Computing
 			- Monitor
 			- Analyze
 		- Application Metrics
+		- Logs
 	
 	SNS
 		- Create Topic
@@ -388,8 +390,14 @@ Cloud Migration Strategies
 
 Cloud Security
 	- Cloud/Application Security
+	- IAM
+		- User Groups
+		- Users
+		- Roles
+		- Policy
+	- GuardDuty - Data Protection
+	- WAF / Shield
 	
-		
 			
 Management Services
 	- Cloud Provisioning
@@ -454,9 +462,38 @@ Analytics Services
 	
 
 			
-		
-			
-			
+Cloud Formation Limitations
+
+Resource Limits:
+
+Stack Limits: 
+	Resource Limits: 200 resources per stack by default
+	Template Limits: limited to 51,200 bytes for inline templates and 460,800 bytes for templates stored in S3.
+	Dependency Management: complex dependency graphs can lead to challenges in template design and longer stack creation times.
+
+Error Handling and Debugging
+
+Update Constraints
+
+	Resource Replacement
+	State Management
+
+Nested Stacks: additional complexity and can be challenging to manage and troubleshoot.
+
+Limited AWS Service Coverage: Not all AWS services or features are supported by CloudFormation. 
+
+Slow Deployment: Large stacks or stacks with complex resources can take a long time to deploy
+
+Rollback Complexity: sometimes complicate debugging and recovery because it reverts the stack to the last known good state, 
+
+Parameter Handling:
+
+Static Parameters: Parameters are static and cannot be dynamically generated or changed during the stack update process.
+Sensitive Data:  directly embedding sensitive information in templates is insecure.
+
+Cross-Region and Cross-Account Limitations
+
+Cost Management: Misconfigurations in templates can lead to the provisioning of unnecessary resources, 
 			
 			
 		
