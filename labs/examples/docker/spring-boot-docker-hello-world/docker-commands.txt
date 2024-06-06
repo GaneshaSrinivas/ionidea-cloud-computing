@@ -6,3 +6,17 @@ docker run -d --name demo-app -p 8081:8081 demo-app:1.0
 
 #Test from browser
 http://localhost:8081
+
+#Push to Docker Hub
+
+#Create Docker Hub Account
+
+docker login
+
+#Create Docker public repo in Docker Hub
+
+docker tag docker-demo <docker-repo-name>
+
+docker push <docker-repo-name>
+
+#Verify whether docker image pushed into the repo
