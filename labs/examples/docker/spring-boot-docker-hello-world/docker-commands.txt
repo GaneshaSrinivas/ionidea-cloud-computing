@@ -1,0 +1,8 @@
+#Build Image
+docker build -t demo-app:1.0 .
+
+#Run Container
+docker run -d --name demo-app -p 8081:8081 demo-app:1.0
+
+#Test from browser
+http://localhost:8081
