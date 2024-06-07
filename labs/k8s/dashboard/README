@@ -5,7 +5,7 @@ Steps to activate K8s Dashboard:
 
 STEP 01: kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.7.0/aio/deploy/recommended.yaml
 
-STEP 02: Pull latest changes and navigate to mobility_devops/labs/k8s/dashboard and run below command
+STEP 02: Pull latest changes and navigate to ionidea-cloud-computing/labs/k8s/dashboard and run below command
 
 kubectl apply -f dashboard-adminuser.yaml
 
@@ -25,7 +25,7 @@ kubectl -n kubernetes-dashboard create token admin-user
 
 Deploying Product Service into K8s:
 
-Step 01: Pull latest changes and navigate to mobility_devops/labs/k8s and run below command
+Step 01: Pull latest changes and navigate to ionidea-cloud-computing/labs/k8s and run below command
 
 Step 02: kubectl create -f product-service.yaml
 
